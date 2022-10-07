@@ -32,12 +32,14 @@
 				</ul>
 			</li>
 
+			<!-- only showing the admin menu to logged in users -->
 			<?php
 			include_once "checksession.php";
 			if (!empty($_SESSION['loggedin']) and $_SESSION['loggedin'] == 1) {
 				echo '<li class="menu"><a href="">Admin</a><ul class="secondary">
 						<li><a href="listbookings.php">Reservations</a></li>
 						<li><a href="listorders.php">Orders</a></li>';
+				//only showing the fooditem and customer details to admin users
 				if ($_SESSION['role'] == "admin") {
 					echo '<li><a href="listitems.php">Products</a></li>                            
 							<li><a href="listcustomers.php">Customers</a></li>';
